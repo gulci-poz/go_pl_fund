@@ -1,0 +1,25 @@
+package main
+
+import "fmt"
+
+func main() {
+	name := "Sebastian"
+	course := "Mastering Go"
+
+	fmt.Println("\nHi", name, "you're currently watching", course)
+
+	changeCourse(course)
+
+	fmt.Println("value of course after passing to function", course)
+}
+
+// wartość return może być również nazwana
+// parametr może mieć inną nazwę niż faktycznie przekazywana zmienna
+
+func changeCourse(courseVal string) string {
+	// = tutaj mamy tylko przypisanie
+	courseVal = "Mastering Docker"
+	fmt.Println("changed value in function", courseVal)
+
+	return courseVal
+}

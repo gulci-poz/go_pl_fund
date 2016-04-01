@@ -1,0 +1,50 @@
+/*
+odblokowujemy możliwość pisania "ć" w ~/user/.atom/keymap.cson
+
+'atom-text-editor[data-grammar~="go"]:not([mini])':
+  'ctrl-alt-c': 'unset!'
+*/
+
+// go-plus w atom rozpoznaje deklarację modułu main w innych plikach w folderze, zmieniam sobie rozszerzenia plików z ćwiczeniami na .goo
+
+package main
+
+import (
+	"fmt"
+	"reflect"
+)
+
+// zmienne w Go są statyczne, w czasie kompilacji jest rozpoznawany typ
+// na poziomie pakietu (poza funkcją) trzeba użyć var; można deklarować zmienne w bloku, używamy tylko jednego var
+// zmienne deklarowane z poziomu pakietu są globalne, widoczne we wszystkich funkcjach
+// zmienne deklarowane w funkcji będą lokalne i dostępne tylko w tej funkcji
+// domyślna inicjalizacja zerem i pustym stringiem
+
+/*
+var (
+    name string
+    course string
+    module float64
+)
+*/
+
+// zmienne tego samego typu można wyliczyć w jednej linii
+
+/*
+var (
+    name, course string
+)
+*/
+
+// Go może wywnioskować typ zmiennej z zawartości
+// to samo (bez podawania typu) można też zrobić w osobnych liniach
+// globalnie możemy zadeklarować zmienną i potem jej nie użyć, lokalnie kompilator będzie narzekał
+
+var (
+	name, course, module = "Sebastian", "Mastering Go", 4.3
+)
+
+func main() {
+	fmt.Println("Name is set to", name, "and is of type", reflect.TypeOf(name))
+	fmt.Println("Module is set to", module, "and is of type", reflect.TypeOf(module))
+}

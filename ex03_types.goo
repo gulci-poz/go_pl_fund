@@ -1,0 +1,24 @@
+package main
+
+import (
+	"fmt"
+	"reflect"
+)
+
+func main() {
+
+	// wewnątrz funkcji deklaracja bez var, zgadywanie typu z przypisaniem :=
+	// := działa tylko wewnątrz funkcji i w przypadku deklaracji połączonej z inicjalizacją
+	a := 10.0
+	b := 3
+
+	// nie możemy użyć zmiennych dwóch różnych typów przy wykonywaniu operacji na liczbach
+	//c := a + b
+
+	// na potrzeby tego wyrażenia i przypisania używamy konwersji int, zmienna a pozostanie float64
+	c := int(a) + b
+
+	fmt.Println("a", a, "type", reflect.TypeOf(a))
+	fmt.Println("b", b, "type", reflect.TypeOf(b))
+	fmt.Println("c", c, "type", reflect.TypeOf(c))
+}
