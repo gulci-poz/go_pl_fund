@@ -1,0 +1,15 @@
+package main
+
+import (
+    "fmt"
+    "os"
+)
+
+func main() {
+    // pary key/value
+    //fmt.Println(os.Environ())
+
+    for _, env := range os.Environ() {
+        fmt.Println(env)
+    }
+}

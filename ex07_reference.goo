@@ -8,8 +8,11 @@ func main() {
 
 	fmt.Println("\nHi", name, "you're currently watching", course)
 
-	fmt.Println("address", &course)
-	changeCourse(&course)
+	ptr := &course
+	fmt.Println("address", ptr)
+	// cały czas przekazujemy przez wartość, zmienne wskaźników mają inne adresy w pamięci, ale zawierają adres tej samej komórki pamięci
+	fmt.Println("address of pointer variable", &ptr)
+	changeCourse(ptr)
 
 	fmt.Println("value of course after passing to function", course)
 }
@@ -17,8 +20,12 @@ func main() {
 // tak podajemy wskaźnik jako typ
 func changeCourse(courseVal *string) {
 
-	// sama zmienna courseVal zawiera adres, musimy użyć dereferencji
+	// sama zmienna courseVal zawiera adres, musimy użyć dereferencji, żeby manipulować zmienną w tej komórce pamięci
+	// courseVal to kopia wartości parametru przekazanego przez &course
 	fmt.Println("address in changeCourse function", courseVal)
+
+	// sama zmienna wskaźnika też ma adres w pamięci
+	fmt.Println("address of courseVal pointer variable", &courseVal)
 
 	// mamy teraz dostęp do zmiennej w danej komórce pamięci
 	*courseVal = "Mastering Docker"

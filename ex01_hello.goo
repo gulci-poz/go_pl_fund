@@ -1,6 +1,7 @@
 // potrzebujemy zmiennej GOPATH, w której będzie ścieżka do przestrzeni roboczej
 // go env - wypisuje zmienne środowiskowe związane z Go
 // cd %GOPATH%
+// cd $Env:GOPATH
 // go run program.go - plik wykonywalny będzie w temp
 
 // Go jest case-sensitive

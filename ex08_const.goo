@@ -1,0 +1,9 @@
+package main
+
+import "fmt"
+
+func main() {
+    // zawsze musimy używać const, nie możemy używać notacji :=
+	const speedOfLight = 186000
+    fmt.Println("const speedOfLight", speedOfLight)
+}
